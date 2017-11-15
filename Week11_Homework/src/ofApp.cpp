@@ -52,6 +52,7 @@ void ofApp::draw(){
         
         ofDrawCircle(pos1.x, pos1.y, radius);
         ofDrawCircle(pos2.x, pos2.y, radius);
+    cout << pos1.x << pos1.x-pos2.x << endl;
         collision();
     
         
@@ -125,8 +126,9 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 
 void ofApp::collision(){
     
-    if(ofDist(pos1.x, pos1.y, pos2.x, pos2.y) <= 0){
+    if (pos1.x - pos1.y <= 0 && pos2.x - pos2.y <= 10){
         change = true;
+        
         ofSetColor(255, 0, 0);
         ofDrawCircle(pos1.x, pos1.y, radius);
         cout << "collide!" << endl;
